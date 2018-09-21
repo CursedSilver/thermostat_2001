@@ -17,6 +17,7 @@ public class HeatDisplay
     {
         // initialise instance variables
         X = 0;
+        Y = 0
     }
 
     /**
