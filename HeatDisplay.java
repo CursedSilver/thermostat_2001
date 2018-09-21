@@ -16,8 +16,7 @@ public class HeatDisplay
     public HeatDisplay(int max, int min, int incr)
     {
         // initialise instance variables
-        X = 0;
-        Y = 0
+        
     }
 
     /**

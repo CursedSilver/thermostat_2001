@@ -78,7 +78,25 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+        int nhour = hours.getValue();
+        String dayNight;
+        
+        if (nhour >= 12){
+            dayNight = "PM";
+        }
+        
+        else {
+            dayNight = "AM";
+        }
+        if (nhour >= 12) {
+            nhour -= 12;
+        }
+        if (nhour == 0) {
+            nhour = 12;
+        }
+        
+        
+        displayString = nhour + ":" + 
+                        minutes.getDisplayValue() + dayNight;
     }
 }
