@@ -8,8 +8,8 @@
 public class HeatDisplay
 {
     // instance variables 
-    private int currentTemperature, minTemperature, maxTemperature, increment;
-
+    private int currentTemperature, minTemperature, maxTemperature, increment,
+    fahrenheit;
     /**
      * Constructor for objects of class HeatDisplay
      */
@@ -18,8 +18,9 @@ public class HeatDisplay
         // initialise instance variables
         maxTemperature = max;
         minTemperature = min;
-        increment      =incr;
-      
+        increment = incr;
+        
+        fahrenheit = 0;
         currentTemperature = 20;
     }
 
@@ -29,23 +30,32 @@ public class HeatDisplay
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int getCurrentTemperature()
+    public int getTemperature(String c_or_f)
     {
-        // put your code here
-        return currentTemperature;
+        // Tests to input of requested temperature then returns requested format
+        
+        if (c_or_f.equals('f')){
+            return convertToFahrenheit();
+        }
+        else {return currentTemperature;
+        }
     }
     
     public int convertToFahrenheit()
     {
-        // put your code here
-
+        //After converting celcius to farhenheit, returns fahrenheit
+        
+        int fahrenheit = (int) ((currentTemperature + 40) * (1.8 - 40));
+        
+        return fahrenheit;
     }
     
     public void warmerTemp()
     {
         // put your code here
-         currentTemperature = currentTemperature + increment;
-        if( currentTemperature > maxTemperature){
+       currentTemperature = currentTemperature + increment;
+       
+       if( currentTemperature > maxTemperature){
           currentTemperature = maxTemperature;
        }
     }
@@ -53,7 +63,8 @@ public class HeatDisplay
     public void coolerTemp()
     {
         // put your code here
-         currentTemperature = currentTemperature - increment;
+        currentTemperature = currentTemperature - increment;
+        
         if( currentTemperature < minTemperature){
           currentTemperature = minTemperature;
         }
@@ -61,14 +72,15 @@ public class HeatDisplay
     
     public void setIncrement(int incr)
     {
-        // put your code here
- 
+        //Returns increment
+        
+        increment = incr;
     }
     
-    public String getTemperature(String c_or_f)
+    public int getCurrentTemperature()
     {
-        // put your code here
-
+        //Returns currentTemperature
         
+        return currentTemperature;
     }
 }
