@@ -1,9 +1,9 @@
 
 /**
  * Write a description of class HeatDisplay here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * The class controls the temperature by increasing ordecreasing it by set increments and displays the new Temperature in Farenheit or Celcieus.
+ * @author (John Gillespie & Hussein AbdelRahman)
+ * @version (23rd Sep. 2018)
  */
 public class HeatDisplay
 {
@@ -19,7 +19,6 @@ public class HeatDisplay
         maxTemperature = max;
         minTemperature = min;
         increment = incr;
-        
         fahrenheit = 0;
         currentTemperature = 20;
     }
@@ -35,9 +34,9 @@ public class HeatDisplay
         // Tests to input of requested temperature then returns requested format
         
         if (c_or_f.equals('f')){
-            return convertToFahrenheit();
+            return convertToFahrenheit() + 'F';
         }
-        else {return currentTemperature;
+        else {return currentTemperature + 'C';
         }
     }
     
@@ -73,14 +72,16 @@ public class HeatDisplay
     public void setIncrement(int incr)
     {
         //Returns increment
-        
+        if(incr < 0){
+            incr = incr * -1;
+        }
         increment = incr;
+        
     }
     
     public int getCurrentTemperature()
     {
         //Returns currentTemperature
-        
         return currentTemperature;
     }
 }
