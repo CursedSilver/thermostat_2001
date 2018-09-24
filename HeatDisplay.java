@@ -16,7 +16,11 @@ public class HeatDisplay
     public HeatDisplay(int max, int min, int incr)
     {
         // initialise instance variables
-        
+        maxTemperature = max;
+        minTemperature = min;
+        increment      =incr;
+      
+        currentTemperature = 20;
     }
 
     /**
@@ -28,7 +32,7 @@ public class HeatDisplay
     public int getCurrentTemperature()
     {
         // put your code here
-
+        return currentTemperature;
     }
     
     public int convertToFahrenheit()
@@ -40,13 +44,19 @@ public class HeatDisplay
     public void warmerTemp()
     {
         // put your code here
- 
+         currentTemperature = currentTemperature + increment;
+        if( currentTemperature > maxTemperature){
+          currentTemperature = maxTemperature;
+       }
     }
     
     public void coolerTemp()
     {
         // put your code here
- 
+         currentTemperature = currentTemperature - increment;
+        if( currentTemperature < minTemperature){
+          currentTemperature = minTemperature;
+        }
     }
     
     public void setIncrement(int incr)
